@@ -25,14 +25,13 @@ class Account:
         ''' modifier/mutator method for balance '''
         self.__Balance = newBalance
 
-    
     def deposit(self, amount):
         ''' modifier/mutator to deposit to account '''
-        self.setBalance(self.getBalance() + amount)
+        self.__Balance = self.__Balance + amount
 
     def withdraw(self, amount):
         ''' modifier/mutator to withdraw from account '''
-        self.setBalance(self.getBalance() - amount)
+        self.__Balance = self.__Balance - amount
 
     def display(self):
         ''' helper/support method to display account info '''
@@ -51,6 +50,7 @@ class SavingAccount(Account): # inheritance
 
     def display_monthly_statement(self):
         self.setBalance(self.getBalance() * (1 + self.__interest))
+        print("Saving Account Monthly Statement")
         super().display()
 
 
@@ -61,15 +61,10 @@ class CurrentAccount(Account):
         ''' constructor for saving account '''
         super().__init__(nAccountNo, nCustomerName, nBalance)
 
+    def display_monthly_statement(self):
+        print("Current Account Monthly Statement")
+        super().display()
 
-
-# main
-# create saving account object
-s = SavingAccount("S00001", "Lim Ah Seng", 500)
-s.display()
-s.deposit(99)
-s.display()
-s.display_monthly_statement()
 
 
 
