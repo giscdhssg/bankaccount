@@ -37,7 +37,7 @@ class Account:
         ''' helper/support method to display account info '''
         print("Account No:", self.__AccountNo)
         print("Customer Name:", self.__CustomerName)
-        print("Balance:", self.__Balance)
+        print("Balance: ${0:.2f}".format(self.__Balance))
 
 
 class SavingAccount(Account): # inheritance
